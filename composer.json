@@ -1,0 +1,13 @@
+{
+    "name": "logicboys/ruang-seminar-landing-page",
+    "description": "Landing page ruang seminar",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Yan Ruzika"
+        }
+    ],
+    "require": {
+        "bcosca/fatfree-core": "^3.8"
+    }
+}
