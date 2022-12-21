@@ -939,7 +939,7 @@
                                             <repeat group="{{ @webinar->tags }}" key="{{ @key_tags }}" value="{{ @tag }}">
                                                 <span class="course-info__badge-text badge-all">{{ @tag }}</span>
                                             </repeat>
-                                            <h3 class="course-info__title"><a href="course-single-layout-01.html">{{ @webinar->name }}</a></h3>
+                                            <h3 class="course-info__title"><a href="{{ @base }}webinar/{{ @webinar->_id }}">{{ @webinar->name }}</a></h3>
                                             <repeat group="{{ @webinar->speakers }}" key="{{ @key_speaker }}" value="{{ @speaker }}">
                                                 <a href="index-main.html#" class="course-info__instructor">{{ @printNama(@speaker->title, @speaker->name) }}</a>
                                             </repeat>

@@ -4,8 +4,8 @@
 
         protected $controllerName = "Homepage";
 
-        function index($f3){
-            $data = $this->dataMatang();
+        function halamanHomePage($f3){
+            $data = $this->prosesDataAllWebinar();
 
             $f3->set('webinarData', $data[1]);
             $f3->set('allWebinar', $data[0]);
@@ -16,19 +16,27 @@
             $this->get_view($f3, 'index.html');
         }
 
-        function dataMentah($f3){
-            $data = Webinar_m::getAllWebinar();
-            
-            echo Cetak::pp($data);
+        function halamanWebinarById($f3){
+            $id = $f3->get('PARAMS.id');
+
+            $webinarData = Webinar_m::getWebinarById($f3, $id);
+
+            $f3->set('data', $webinarData);
+            $f3->set('printNama', function($gelar, $nama){
+                return str_replace('|', $nama, $gelar);
+            });
+
+            $this->get_view($f3, 'webinar.html');
         }
 
-        function dataMatang(){
-            $data = Webinar_m::getAllWebinar();
+        function prosesDataAllWebinar(){
+            $data = Webinar_m::getHomePageWebinar();
 
             $webinarData = array();
 
             foreach($data->webinar as $key => $webinar){
                 $currentWebinar = array(
+                    '_id' => $webinar->_id,
                     'name' => $webinar->name,
                     'desc' => $webinar->description,
                     'speakers' => $webinar->speakers,
@@ -52,6 +60,12 @@
             // echo Cetak::pp($webinarData);
 
             return array($data, $webinarData);
+        }
+
+        function dataMentah($f3){
+            
+            
+            echo Cetak::pp($data);
         }
 
     }
