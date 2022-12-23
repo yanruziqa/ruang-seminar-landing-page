@@ -1,0 +1,115 @@
+<!-- Course Section Start -->
+<div class="courses-section section-padding-02">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <!-- Section Title Start -->
+                <div class="section-title" data-aos="fade-up" data-aos-duration="1000">
+                    <h2 class="section-title__title">Top <mark>Webinar</mark>
+                    </h2>
+                </div>
+                <!-- Section Title End -->
+            </div>
+            <div class="col-lg-6">
+                <div class="courses-tab-menu" data-aos="fade-up" data-aos-duration="1000">
+                    <ul class="nav justify-content-lg-end">
+                        <li>
+                            <button class="active" data-bs-toggle="tab" data-bs-target="#tab1">All</button>
+                        </li>
+                        <repeat group="{{ @webinarData }}" key="{{ @tag }}" value="{{ @webinar }}">
+                            <li>
+                                <button data-bs-toggle="tab" data-bs-target="#tab-{{ @tag }}">{{ @tag }}</button>
+                            </li>
+                        </repeat>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="tab-content">
+            <div class="tab-pane fade show active" id="tab1">
+                <div class="row row-cols-xl-5 g-6">
+                    <repeat group="{{ @allWebinar->webinar }}" key="{{ @key_webinar }}" value="{{ @webinar }}">
+                        <div class="col-xl col-lg-3 col-md-4 col-sm-6">
+                            <!-- Course Start -->
+                            <div class="course-item" data-aos="fade-up" data-aos-duration="1000">
+                                <div class="course-header">
+                                    <div class="course-header__thumbnail ">
+                                        <a href="course-single-layout-01.html">
+                                            <img src="{{ @baseOnlineResources }}{{ @webinar->profileImage }}" alt="courses" width="258" height="173">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="course-info">
+                                    <repeat group="{{ @webinar->tags }}" key="{{ @key_tags }}" value="{{ @tag }}">
+                                        <span class="course-info__badge-text badge-all">{{ @tag }}</span>
+                                    </repeat>
+                                    <h3 class="course-info__title">
+                                        <a href="{{ @base }}webinar/{{ @webinar->_id }}">{{ @webinar->name }}</a>
+                                    </h3>
+                                    <repeat group="{{ @webinar->speakers }}" key="{{ @key_speaker }}" value="{{ @speaker }}">
+                                        <a href="index-main.html#" class="course-info__instructor">{{ @printNama(@speaker->title, @speaker->name) }}</a>
+                                    </repeat>
+                                    <div class="course-info__price">
+                                        <span class="sale-price">$39. <small class="separator">00</small>
+                                        </span>
+                                    </div>
+                                    <div class="course-info__rating">
+                                        <div class="rating-star">
+                                            <div class="rating-label" style="width: 80%;"></div>
+                                        </div>
+                                        <span>(2)</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Course End -->
+                        </div>
+                    </repeat>
+                </div>
+            </div>
+            <repeat group="{{ @webinarData }}" key="{{ @tag }}" value="{{ @webinars }}">
+                <div class="tab-pane fade" id="tab-{{ @tag }}">
+                    <div class="row row-cols-xl-5 g-6">
+                        <repeat group="{{ @webinars.daftar_webinar }}" key="{{ @key }}" value="{{ @webinar }}">
+                            <div class="col-xl col-lg-3 col-md-4 col-sm-6">
+                                <!-- Course Start -->
+                                <div class="course-item" data-aos="fade-up" data-aos-duration="1000">
+                                    <div class="course-header">
+                                        <div class="course-header__thumbnail ">
+                                            <a href="course-single-layout-01.html">
+                                                <img src="{{ @baseRes }}images/courses/courses-11.jpg" alt="courses" width="258" height="173">
+                                            </a>
+                                        </div>
+                                        <!-- <div class="course-header__badge"><span class="hot">Featured</span><span class="onsale">-39%</span></div> -->
+                                    </div>
+                                    <div class="course-info">
+                                        <span class="course-info__badge-text badge-beginner">{{ @tag }}</span>
+                                        <h3 class="course-info__title">
+                                            <a href="course-single-layout-01.html">{{ @webinar.name }}</a>
+                                        </h3>
+                                        <repeat group="{{ @webinar.speakers }}" key="{{ @key_speaker }}" value="{{ @speaker }}">
+                                            <a href="index-main.html#" class="course-info__instructor">{{ @printNama(@speaker->title, @speaker->name) }}</a>
+                                        </repeat>
+                                        <div class="course-info__price">
+                                            <span class="sale-price">$46. <small class="separator">00</small>
+                                            </span>
+                                            <span class="regular-price">$76. <small class="separator">00</small>
+                                            </span>
+                                        </div>
+                                        <div class="course-info__rating">
+                                            <div class="rating-star">
+                                                <div class="rating-label" style="width: 80%;"></div>
+                                            </div>
+                                            <span>(2)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Course End -->
+                            </div>
+                        </repeat>
+                    </div>
+                </div>
+            </repeat>
+        </div>
+    </div>
+</div>
+<!-- Course Section End -->

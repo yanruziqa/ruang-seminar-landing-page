@@ -1,0 +1,47 @@
+<!-- Header Logo Start -->
+<div class="header-logo">
+	<a class="header-logo__logo" href="index-main.html">
+		<img src="{{ @baseRes }}images/dark-logo.png" width="296" height="64" alt="Logo">
+	</a>
+</div>
+<!-- Header Logo End -->
+<include href="{{ @baseComponentFolder.'header/navbar/category.html' }}" />
+<!-- Header Inner Start -->
+<div class="header-inner">
+	<!-- Header Search Start -->
+	<div class="header-serach">
+		<form action="index-main.html#">
+			<input type="text" class="header-serach__input" placeholder="Search...">
+			<button class="header-serach__btn">
+				<i class="fas fa-search"></i>
+			</button>
+		</form>
+	</div>
+	<!-- Header Search End -->
+    <include href="{{ @baseComponentFolder.'header/navbar/nav_menu.html' }}" />
+	<!-- Header User Button Start -->
+	<div class="header-user d-none d-lg-flex">
+		<div class="header-user__button">
+			<a class="header-user__login" href="https://app.ruangseminar.id">Log In</a>
+		</div>
+		<div class="header-user__button">
+			<a class="header-user__signup btn btn-primary btn-hover-primary" href="https://app.ruangseminar.id">Sign Up</a>
+		</div>
+	</div>
+	<!-- Header User Button End -->
+	<!-- Header Mobile Toggle Start -->
+	<div class="header-toggle">
+		<button class="header-toggle__btn d-xl-none" data-bs-toggle="offcanvas" data-bs-target="#offcanvasMobileMenu">
+			<span class="line"></span>
+			<span class="line"></span>
+			<span class="line"></span>
+		</button>
+		<button class="header-toggle__btn search-open d-flex d-md-none">
+			<span class="dots"></span>
+			<span class="dots"></span>
+			<span class="dots"></span>
+		</button>
+	</div>
+	<!-- Header Mobile Toggle End -->
+</div>
+<!-- Header Inner End -->

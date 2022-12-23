@@ -7,13 +7,20 @@
         function halamanHomePage($f3){
             $data = $this->prosesDataAllWebinar();
 
+            $components = array(
+                'title' => 'Ruang Seminar | Rekan Kerja Digital Anda',
+                'komponen' => array(
+                    'slider', 'offcanvas-menu', 'fitur', 'kategori', 'course', 'call-to-action', 'testimonial', 'banner', 'partner'
+                )
+            );
+
             $f3->set('webinarData', $data[1]);
             $f3->set('allWebinar', $data[0]);
             $f3->set('printNama', function($gelar, $nama){
                 return str_replace('|', $nama, $gelar);
             });
             
-            $this->get_view($f3, 'index.html');
+            $this->get_view($f3, $components);
         }
 
         function halamanWebinarById($f3){
@@ -21,12 +28,19 @@
 
             $webinarData = Webinar_m::getWebinarById($f3, $id);
 
+            $components = array(
+                'title' => $webinarData->name.' | Ruang Seminar',
+                'komponen' => array(
+                    'breadcrumb', 'offcanvas-menu', 'course-info', 'course-content'
+                )
+            );
+
             $f3->set('data', $webinarData);
             $f3->set('printNama', function($gelar, $nama){
                 return str_replace('|', $nama, $gelar);
             });
 
-            $this->get_view($f3, 'webinar.html');
+            $this->get_view($f3, $components);
         }
 
         function prosesDataAllWebinar(){

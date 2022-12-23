@@ -1,0 +1,59 @@
+<!-- Tutor Course Top Info Start -->
+<div class="tutor-course-top-info section-padding-01">
+	<div class="container custom-container">
+		<div class="row gy-10 align-items-center flex-row-reverse">
+			<div class="col-md-5">
+				<div class="tutor-course-top-info__video">
+					<div class="ratio ratio-16x9"></div>
+				</div>
+			</div>
+			<div class="col-md-7">
+				<!-- Tutor Course Top Info Start -->
+				<div class="tutor-course-top-info__content">
+					<div class="tutor-course-top-info__badges">
+						<repeat group="{{ @data->tags }}" key="{{ @key_tag }}" value="{{ @tag }}">
+							<a class="badges-category" href="course-single-layout-03.html#">{{ @tag }}</a>
+						</repeat>
+					</div>
+					<h1 class="tutor-course-top-info__title">{{ @data->name }}</h1>
+					<div class="tutor-course-top-info__meta">
+						<repeat group="{{ @data->speakers }}" key="{{ @key_speaker }}" value="{{ @speaker }}">
+							<div class="tutor-course-top-info__meta-instructor">
+								<div class="instructor-avatar">
+									<img src="{{ @baseRes }}images/instructor/instructor-01.jpg" alt="Instructor" width="36" height="36">
+								</div>
+								<div class="instructor-name">
+									{{ @printNama(@speaker->title, @speaker->name) }}
+								</div>
+							</div>
+						</repeat>
+					</div>
+					<div class="tutor-course-top-info__meta">
+						<div class="tutor-course-top-info__meta-rating">
+							<div class="rating-average">
+								<strong>4.38</strong> /5
+							</div>
+							<div class="rating-star">
+								<div class="rating-label" style="width: 90%;"></div>
+							</div>
+							<div class="rating-count">(8)</div>
+						</div>
+						<div class="tutor-course-top-info__meta-action">
+							<i class="meta-icon far fa-user-alt"></i> 0 already enrolled
+						</div>
+					</div>
+					<div class="tutor-course-top-info__btn">
+						<button class="btn btn-primary btn-hover-secondary">
+							<i class="far fa-shopping-cart"></i> Add to cart </button>
+						<a href="course-single-layout-03.html#" class="btn-wishlist">
+							<i class="fal fa-heart"></i>
+							<span>Add to wishlist</span>
+						</a>
+					</div>
+				</div>
+				<!-- Tutor Course Top Info End -->
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Tutor Course Top Info End -->
