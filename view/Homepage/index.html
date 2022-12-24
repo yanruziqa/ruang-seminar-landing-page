@@ -12,7 +12,7 @@
         <include href="{{ @baseComponentFolder.'header.html' }}" />
 
         <repeat group="{{ @components.komponen }}" key="{{ @urutan }}" value="{{ @komponen }}">
-            <include href="{{ @baseComponentFolder.'layout/'.@komponen.'.html' }}" />
+            <include href="{{ @baseComponentFolder.'layout/'.@str_replace('~', @components.page, @komponen).'.html' }}" />
         </repeat>
 
         <include href="{{ @baseComponentFolder.'footer.html' }}" />
