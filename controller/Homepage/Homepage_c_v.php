@@ -2,23 +2,28 @@
     class HomepageView extends ViewController{
         protected $controllerName = "Homepage";
 
+        function __construct(){
+            $this->data = new HomepageData();
+        }
+
         function halamanHomePage($f3){
-            $homepageData = new HomepageData();
-            $data = $homepageData->prosesDataAllWebinar();
+            // $data = $homepageData->prosesDataAllWebinar();
+
+            $dataWebinar = $this->data->getForHomepage();
+            $dataKategori = $this->data->getCategoryForHomepage();
+
+            // echo Cetak::pp($data);
 
             $components = array(
                 'title' => 'Ruang Seminar | Rekan Kerja Digital Anda',
                 'page' => 'home',
                 'komponen' => array(
-                    '~/slider', 'offcanvas-menu', '~/fitur', '~/kategori', '~/course', '~/call-to-action', '~/testimonial', '~/banner', '~/partner'
+                    '~/slider', 'offcanvas-menu', '~/fitur', '~/kategori', '~/course', '~/call-to-action', '~/testimonial'
                 )
             );
 
-            $f3->set('webinarData', $data[1]);
-            $f3->set('allWebinar', $data[0]);
-            $f3->set('printNama', function($gelar, $nama){
-                return str_replace('|', $nama, $gelar);
-            });
+            $f3->set('webinarData', $dataWebinar);
+            $f3->set('dataKategori', $dataKategori);
             
             $this->get_view($f3, $components);
         }
@@ -26,20 +31,19 @@
         function halamanWebinarById($f3){
             $id = $f3->get('PARAMS.id');
 
-            $webinarData = Webinar_m::getWebinarById($f3, $id);
+            $webinarData = $this->data->getWebinarForWebinarById($id);
 
             $components = array(
-                'title' => $webinarData->name.' | Ruang Seminar',
+                'title' => $webinarData['judul'].' | Ruang Seminar',
                 'page' => 'webinar',
                 'komponen' => array(
-                    'breadcrumb', 'offcanvas-menu', '~/course-info', '~/course-content'
+                    'breadcrumb', 'offcanvas-menu', '~/course-info'
                 )
             );
 
             $f3->set('data', $webinarData);
-            $f3->set('printNama', function($gelar, $nama){
-                return str_replace('|', $nama, $gelar);
-            });
+
+            // echo Cetak::pp($webinarData);
 
             $this->get_view($f3, $components);
         }
@@ -49,7 +53,7 @@
                 'title' => 'Ruang Seminar | Rekan Kerja Digital Anda',
                 'page' => 'instructor',
                 'komponen' => array(
-                    'offcanvas-menu', 'breadcrumb', '~/banner', '~/edumall', 'counter', '~/how', '~/cta'
+                    'offcanvas-menu', '~/banner', '~/edumall', 'counter', '~/how', '~/cta'
                 )
             );
             

@@ -142,7 +142,28 @@
 										</div>
 									</div>
 									<div class="course-curriculum accordion">
-										
+										<!-- <repeat group="{{ @data->packages }}" key="{{ @key_packages }}" value="{{ @package }}">
+											<div class="accordion-item">
+												<button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#collapse-{{ @package->_id }}">
+													<i class="tutor-icon"></i> {{ @package->name }}
+												</button>
+												<div id="collapse-{{ @package->_id }}" class="accordion-collapse collapse" data-bs-parent="#accordionCourse">
+													<div class="course-curriculum__lessons">
+														<repeat group="{{ @package->facilities }}" key="{{ @key_facilities }}" value="{{ @facility }}">
+															<div class="course-curriculum__lesson">
+																<span class="course-curriculum__title">
+																	<i class="far fa-file-alt"></i>
+																	{{ @facility }}
+																</span>
+																<span class="course-curriculum__icon">
+																	<i class="far fa-lock-alt"></i>
+																</span>
+															</div>
+														</repeat>
+													</div>
+												</div>
+											</div>
+										</repeat> -->
 									</div>
 								</div>
 								<!-- Tutor Course Segment End -->

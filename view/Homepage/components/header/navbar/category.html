@@ -1,6 +1,6 @@
 <!-- Header Category Menu Start -->
 <div class="header-category-menu d-none d-xl-block">
-	<a href="index-main.html#" class="header-category-toggle">
+	<a href="#" class="header-category-toggle">
 		<div class="header-category-toggle__icon">
 			<svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 				<g stroke="none" stroke-width="1" fill-rule="evenodd">
@@ -12,7 +12,7 @@
 	</a>
 	<div class="header-category-dropdown-wrap">
 		<ul class="header-category-dropdown">
-			<li>
+			<!-- <li>
 				<a href="shop-left-sidebar.html"> Design <span class="toggle-sub-menu"></span>
 				</a>
 				<ul class="sub-categories children">
@@ -83,40 +83,12 @@
 						<a href="shop-left-sidebar.html">Strategy &amp; Analytics</a>
 					</li>
 				</ul>
-			</li>
-			<li>
-				<a href="shop-left-sidebar.html">Business</a>
-			</li>
-			<li>
-				<a href="shop-left-sidebar.html">Data Science</a>
-			</li>
-			<li>
-				<a href="shop-left-sidebar.html">Development</a>
-			</li>
-			<li>
-				<a href="shop-left-sidebar.html">Finance</a>
-			</li>
-			<li>
-				<a href="shop-left-sidebar.html">Health &amp; Fitness</a>
-			</li>
-			<li>
-				<a href="shop-left-sidebar.html">Lifestyle</a>
-			</li>
-			<li>
-				<a href="shop-left-sidebar.html">Marketing</a>
-			</li>
-			<li>
-				<a href="shop-left-sidebar.html">Music</a>
-			</li>
-			<li>
-				<a href="shop-left-sidebar.html">Personal Development</a>
-			</li>
-			<li>
-				<a href="shop-left-sidebar.html">Photography</a>
-			</li>
-			<li>
-				<a href="shop-left-sidebar.html">Teaching &amp; Academics</a>
-			</li>
+			</li> -->
+			<repeat group="{{ @categoryData }}" key="{{ @key_category }}" value="{{ @kategori }}">
+				<li>
+					<a href="#">{{ @kategori.nama_kategori }}</a>
+				</li>
+			</repeat>
 		</ul>
 	</div>
 </div>
