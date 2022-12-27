@@ -1,21 +1,9 @@
-<!-- Page Banner Section Start -->
-<div class="page-banner">
-	<div class="page-banner__wrapper">
-		<div class="container">
-			<!-- Page Breadcrumb Start -->
-			<div class="page-breadcrumb">
-				<ul class="breadcrumb">
-					<li class="breadcrumb-item">
-						<a href="{{ @base }}">Home</a>
-					</li>
-					<li class="breadcrumb-item">
-						<a href="#">Webinar</a>
-					</li>
-					<li class="breadcrumb-item active">{{ @data.judul }}</li>
-				</ul>
-			</div>
-			<!-- Page Breadcrumb End -->
-		</div>
-	</div>
+<div class="page-breadcrumb">
+	<ul class="breadcrumb">
+		<repeat group="{{ @breadcrumb }}" key="{{ @name }}" value="{{ @target }}">
+			<li class="breadcrumb-item">
+				<a href="{{ @target }}">{{ @name }}</a>
+			</li>
+		</repeat>
+	</ul>
 </div>
-<!-- Page Banner Section End -->

@@ -86,7 +86,7 @@
 			</li> -->
 			<repeat group="{{ @categoryData }}" key="{{ @key_category }}" value="{{ @kategori }}">
 				<li>
-					<a href="#">{{ @kategori.nama_kategori }}</a>
+					<a href="{{ @base }}category/{{ @kategori.id_kategori }}">{{ @kategori.nama_kategori }}</a>
 				</li>
 			</repeat>
 		</ul>

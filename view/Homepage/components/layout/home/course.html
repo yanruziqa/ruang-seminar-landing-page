@@ -10,6 +10,20 @@
                 </div>
                 <!-- Section Title End -->
             </div>
+            <div class="col-lg-6">
+                <div class="courses-tab-menu" data-aos="fade-up" data-aos-duration="1000">
+                    <ul class="nav justify-content-lg-end">
+                        <li>
+                            <button class="active" data-bs-toggle="tab" data-bs-target="#tab1">All</button>
+                        </li>
+                        <repeat group="{{ @dataKategoriWebinar }}" key="{{ @tag }}" value="{{ @webinar }}">
+                            <li>
+                                <button data-bs-toggle="tab" data-bs-target="#tab-{{ @tag }}">{{ @tag }}</button>
+                            </li>
+                        </repeat>
+                    </ul>
+                </div>
+            </div>
         </div>
         <div class="tab-content">
             <div class="tab-pane fade show active" id="tab1">
@@ -42,6 +56,39 @@
                     </repeat>
                 </div>
             </div>
+
+            <repeat group="{{ @dataKategoriWebinar }}" key="{{ @tag }}" value="{{ @webinars }}">
+                <div class="tab-pane fade" id="tab-{{ @tag }}">
+                    <div class="row row-cols-xl-5 g-6">
+                        <repeat group="{{ @webinars }}" key="{{ @key }}" value="{{ @webinar }}">
+                            <div class="col-xl col-lg-3 col-md-4 col-sm-6">
+                                <!-- Course Start -->
+                                <div class="course-item" data-aos="fade-up" data-aos-duration="1000">
+                                    <div class="course-header">
+                                        <div class="course-header__thumbnail ">
+                                            <a href="#">
+                                                <img src="{{ @baseRes }}images/coming_soon.jpg" alt="courses" width="258" height="173">
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="course-info">
+                                        <span class="course-info__badge-text badge-all">{{ @webinar.nama_kategori }}</span>
+                                        <h3 class="course-info__title">
+                                            <a href="{{ @base }}webinar/{{ @webinar.id_webinar }}">{{ @webinar.judul }}</a>
+                                        </h3>
+                                        <a href="#" class="course-info__instructor">{{ @webinar.pembicara }}</a>
+                                        <div class="course-info__price">
+                                            <span class="sale-price"><small class="separator">{{ @webinar.hari }}</small> {{ @webinar.bulan }}
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Course End -->
+                            </div>
+                        </repeat>
+                    </div>
+                </div>
+            </repeat>
         </div>
     </div>
 </div>

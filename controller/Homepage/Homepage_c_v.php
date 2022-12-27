@@ -22,7 +22,8 @@
                 )
             );
 
-            $f3->set('webinarData', $dataWebinar);
+            $f3->set('webinarData', $dataWebinar['webinar']);
+            $f3->set('dataKategoriWebinar', $dataWebinar['categories']);
             $f3->set('dataKategori', $dataKategori);
             
             $this->get_view($f3, $components);
@@ -37,12 +38,18 @@
                 'title' => $webinarData['judul'].' | Ruang Seminar',
                 'page' => 'webinar',
                 'komponen' => array(
-                    'breadcrumb', 'offcanvas-menu', '~/course-info'
+                    '~/banner', 'offcanvas-menu', '~/course-info'
                 )
+            );
+            $breadcrumbItem = array(
+                'Home' => $f3->get('base'),
+                $webinarData['nama_kategori'] => $f3->get('base')."category/".$webinarData['id_kategori'],
+                $webinarData['judul'] => $f3->get('base')."webinar/".$webinarData['id_webinar']
             );
 
             $f3->set('data', $webinarData);
-
+            $f3->set('breadcrumb', $breadcrumbItem);
+            
             // echo Cetak::pp($webinarData);
 
             $this->get_view($f3, $components);
@@ -57,6 +64,31 @@
                 )
             );
             
+            $this->get_view($f3, $components);
+        }
+
+        function halamanCategory($f3){
+            $id = $f3->get('PARAMS.id');
+
+            $webinarData = $this->data->getWebinarForCategory($id);
+
+            $components = array(
+                'title' => 'Webinar dalam Kategori '.$webinarData[0]['nama_kategori'].' | Ruang Seminar',
+                'page' => 'category',
+                'komponen' => array(
+                    'offcanvas-menu', '~/banner', '~/course-grid'
+                )
+            );
+            $breadcrumbItem = array(
+                'Home' => $f3->get('base'),
+                $webinarData[0]['nama_kategori'] => $f3->get('base')."category/".$webinarData[0]['id_kategori']
+            );
+
+            $f3->set('data', $webinarData);
+            $f3->set('breadcrumb', $breadcrumbItem);
+
+            // echo Cetak::pp($webinarData);
+
             $this->get_view($f3, $components);
         }
     }

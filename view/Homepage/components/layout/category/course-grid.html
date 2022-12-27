@@ -1,0 +1,137 @@
+<!-- Courses Start -->
+<div class="courses-section section-padding-01">
+    <div class="container">
+
+        <!-- Archive Filter Bars Start -->
+        <div class="archive-filter-bars">
+
+            <div class="archive-filter-bar">
+                <p>We found <span>101</span> courses available for you</p>
+            </div>
+
+            <div class="archive-filter-bar">
+
+                <div class="filter-bar-wrapper">
+                    <span>See</span>
+                    <ul class="nav">
+                        <li><button class="active" data-bs-toggle="tab" data-bs-target="#grid"><i class="fas fa-th"></i></button></li>
+                        <li><button data-bs-toggle="tab" data-bs-target="#list"><i class="fas fa-bars"></i></button></li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+        <!-- Archive Filter Bars End -->
+
+        <div class="tab-content">
+            <div class="tab-pane fade show active" id="grid">
+
+                <div class="row gy-6">
+                    <repeat group="{{ @data }}" key="{{ @key }}" value="{{ @webinar }}">
+                        <div class="col-xl-3 col-lg-4 col-sm-6">
+
+                            <!-- Course Start -->
+                            <div class="course-item-02" data-aos="fade-up" data-aos-duration="1000">
+                                <div class="course-header">
+                                    <div class="course-header__thumbnail rounded-0">
+                                        <a><img src="{{ @baseRes }}images/coming_soon.jpg" alt="courses" width="330" height="221"></a>
+                                    </div>
+                                    <!-- <div class="course-header__badge">
+                                        <span class="free">Free</span>
+                                    </div> -->
+                                </div>
+                                <div class="course-info-02">
+                                    <!-- <span class="course-info-02__badge-text badge-all"></span> -->
+                                    <div class="course-info-02__category">
+                                        <a href="#">{{ @webinar.nama_kategori }}</a>
+                                    </div>
+                                    <h3 class="course-info-02__title"><a href="{{ @base }}webinar/{{ @webinar.id_webinar }}">{{ @webinar.judul }}</a></h3>
+                                    <div class="course-info-02__description">
+                                        <p>oleh <strong>{{ @webinar.pembicara }}</strong></p>
+                                    </div>
+                                    <div class="course-info-02__price">
+                                        <span class="sale-price"><small class="separator">{{ @webinar.hari }}</small> {{ @webinar.bulan }}
+                                        </span>
+                                    </div>
+                                    <!-- <div class="course-info-02__rating">
+
+                                        <div class="rating-star">
+                                            <div class="rating-label" style="width: 100%;"></div>
+                                        </div>
+
+                                        <span>(2)</span>
+                                    </div> -->
+                                </div>
+                            </div>
+                            <!-- Course End -->
+
+                        </div>
+                    </repeat>
+                </div>
+
+            </div>
+            <div class="tab-pane fade" id="list">
+                <repeat group="{{ @data }}" key="{{ @key }}" value="{{ @webinar }}">
+                    <!-- Course List Start -->
+                    <div class="course-list-item">
+                        <div class="course-list-header">
+                            <div class="course-list-header__thumbnail ">
+                                <a href=""><img src="{{ @baseRes }}images/coming_soon.jpg" alt="courses" width="270" height="181"></a>
+                            </div>
+                        </div>
+                        <div class="course-list-info">
+                            <h3 class="course-list-info__title"><a href="{{ @base }}webinar/{{ @webinar.id_webinar }}">{{ @webinar.judul }}</a></h3>
+                            <!-- <div class="course-list-info__meta">
+                                <span><i class="far fa-play-circle"></i> 5 Lessons</span>
+                                <span><i class="far fa-clock"></i> 2.3 hours</span>
+                                <span><i class="far fa-sliders-h"></i> All Levels</span>
+                            </div> -->
+                            <div class="course-list-info__description">
+                                <p>oleh <strong>{{ @webinar.pembicara }}</strong></p>
+                            </div>
+                            <div class="course-list-info__action">
+                                <button class="btn btn-primary btn-hover-secondary">Gabung</button>
+                            </div>
+                            <div class="course-list-info__footer">
+                                <div class="course-list-info__price">
+                                    <span class="sale-price"><small class="separator">{{ @webinar.hari }}</small> {{ @webinar.bulan }}
+                                    </span>
+                                </div>
+                                <!-- <div class="course-list-info__rating">
+
+                                    <div class="rating-star">
+                                        <div class="rating-label" style="width: 100%;"></div>
+                                    </div>
+
+                                    <div class="rating-average">
+                                        <span class="rating-average__average">5.0</span>
+                                        <span class="rating-average__total">/5</span>
+                                    </div>
+
+                                    <p class="course-list-info__rating-count">(2 ratings)</p>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Course List End -->
+                </repeat>
+
+            </div>
+        </div>
+
+        <!-- Page Pagination Start -->
+        <!-- <div class="page-pagination">
+            <ul class="pagination justify-content-center">
+                <li><a class="active" href="course-grid-01.html#">1</a></li>
+                <li><a href="course-grid-01.html#">2</a></li>
+                <li><a href="course-grid-01.html#">...</a></li>
+                <li><a href="course-grid-01.html#">7</a></li>
+                <li><a href="course-grid-01.html#"><i class="far fa-angle-double-right"></i></a></li>
+            </ul>
+        </div> -->
+        <!-- Page Pagination End -->
+
+    </div>
+</div>
+<!-- Courses End -->
